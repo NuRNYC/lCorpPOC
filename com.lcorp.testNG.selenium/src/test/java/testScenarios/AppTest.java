@@ -30,7 +30,8 @@ public class AppTest
 			+ "Durham, North Carolina, United States of America";
 	String jobID="Job Id : 21-90223_RM";
 	String description="The right candidate for this role will participate in the test automation technology development and best practice models.";
-	
+	String underManagement="Prepare test plans, budgets, and schedules.";
+	String thirdRequirement="5+ years of experience in QA automation development and scripting.";
 	
 	//@SuppressWarnings("deprecation")
 	@BeforeTest
@@ -68,11 +69,15 @@ public class AppTest
     	Assert.assertTrue(cPage.jobID.getText().contentEquals(jobID), "Job ID did not matched");
     	System.out.println(cPage.jobLocation.getText());
     	System.out.println(cPage.jobID.getText());
-    	
-    	cPage.jobDescription.getText();
-    	
-    	//Assert.assertFalse(cPage.jobDescription.getText().contains(description), "Job description did not matched");
+  
+    	//Verifying job description
     	Assert.assertTrue(cPage.jobDescription.getText().contains(description), "Job description did not matched");
+    	//Verifying second bullet point under management
+    	Assert.assertTrue(cPage.getSecondElementTextof_underManagementUL().contains(underManagement), "Second bullet point did not matched");
+    	//Verifying third requirement
+    	Assert.assertEquals(cPage.verifyThirdRequirement(), thirdRequirement, "Third requirement did not matched");
+    	
+    	
     }
     
     @AfterTest

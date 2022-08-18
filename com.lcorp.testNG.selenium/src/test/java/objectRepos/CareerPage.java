@@ -1,5 +1,8 @@
 package objectRepos;
 
+import java.util.List;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -32,14 +35,13 @@ public class CareerPage {
 	@FindBy(xpath ="//span[@class='au-target jobId']") 
 	public WebElement jobID;
 	
-	
-	
 	@FindBy(xpath ="//div[@class='job-description']//p[contains(text(),'Advance your Information Technology (IT) career at')]") 
 	public WebElement jobDescription;
 	
-	//
+	@FindBy(xpath ="//div[@class='col-lg-8 col-md-8 col-sm-12']//ul[2]") 
+	public WebElement underManagementUL;
+
 	
-	//p[contains(text(),'Advance your Information Technology (IT) career at')]
 	public void searchJob(String searchString) {
 		try {
 			topSearch.click();
@@ -81,6 +83,18 @@ public class CareerPage {
 		return false;	
 	}
 	
+	public String getSecondElementTextof_underManagementUL() {
+		List<WebElement> allElements = driver.findElements(By.xpath("//div[@class='col-lg-8 col-md-8 col-sm-12']//ul[2]/li")); 
+		String text= allElements.get(1).getText();
+		System.out.println(allElements.get(1).getText());
+		return text;
+	}
 	
+	public String verifyThirdRequirement() {
+		List<WebElement> allElements = driver.findElements(By.xpath("//div[@class='col-lg-8 col-md-8 col-sm-12']//ul[4]/li")); 
+		String text= allElements.get(2).getText();
+		System.out.println(allElements.get(2).getText());
+		return text;
+	}
 
 }
