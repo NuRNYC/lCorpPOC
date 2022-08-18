@@ -6,8 +6,8 @@
       <class name="testScenarios.AppTest">
         <methods>
           <include name="testScenarioOne"/>
+          <include name="beforeTestSetup"/>
           <include name="tearDown"/>
-          <include name="beforeTestS"/>
         </methods>
       </class> <!-- testScenarios.AppTest -->
     </classes>

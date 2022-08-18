@@ -2,20 +2,20 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-08-17T22:03:36 EDT" name="Default suite" finished-at="2022-08-17T22:04:13 EDT" duration-ms="37156">
+  <suite started-at="2022-08-17T23:48:13 EDT" name="Default suite" finished-at="2022-08-17T23:48:37 EDT" duration-ms="24421">
     <groups>
     </groups>
-    <test started-at="2022-08-17T22:03:36 EDT" name="Default test" finished-at="2022-08-17T22:04:13 EDT" duration-ms="37156">
+    <test started-at="2022-08-17T23:48:13 EDT" name="Default test" finished-at="2022-08-17T23:48:37 EDT" duration-ms="24421">
       <class name="testScenarios.AppTest">
-        <test-method is-config="true" signature="beforeTestS()[pri:0, instance:testScenarios.AppTest@6fd83fc1]" started-at="2022-08-17T22:03:36 EDT" name="beforeTestS" finished-at="2022-08-17T22:04:13 EDT" duration-ms="36806" status="PASS">
+        <test-method is-config="true" signature="beforeTestSetup()[pri:0, instance:testScenarios.AppTest@6fd83fc1]" started-at="2022-08-17T23:48:13 EDT" name="beforeTestSetup" finished-at="2022-08-17T23:48:31 EDT" duration-ms="18500" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- beforeTestS -->
-        <test-method signature="testScenarioOne()[pri:0, instance:testScenarios.AppTest@6fd83fc1]" started-at="2022-08-17T22:04:13 EDT" name="testScenarioOne" finished-at="2022-08-17T22:04:13 EDT" duration-ms="156" status="PASS">
+        </test-method> <!-- beforeTestSetup -->
+        <test-method signature="testScenarioOne()[pri:0, instance:testScenarios.AppTest@6fd83fc1]" started-at="2022-08-17T23:48:31 EDT" name="testScenarioOne" finished-at="2022-08-17T23:48:37 EDT" duration-ms="5731" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testScenarioOne -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:testScenarios.AppTest@6fd83fc1]" started-at="2022-08-17T22:04:13 EDT" name="tearDown" finished-at="2022-08-17T22:04:13 EDT" duration-ms="164" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:testScenarios.AppTest@6fd83fc1]" started-at="2022-08-17T23:48:37 EDT" name="tearDown" finished-at="2022-08-17T23:48:37 EDT" duration-ms="164" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
