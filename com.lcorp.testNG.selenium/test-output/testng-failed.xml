@@ -5,7 +5,7 @@
     <classes>
       <class name="apiRestAssured.PostApiTest">
         <methods>
-          <include name="checkStatusCode4"/>
+          <include name="verifyEmployeeOnleave"/>
           <include name="postRecord1"/>
         </methods>
       </class> <!-- apiRestAssured.PostApiTest -->

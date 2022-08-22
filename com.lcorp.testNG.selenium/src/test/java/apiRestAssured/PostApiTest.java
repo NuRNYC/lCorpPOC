@@ -23,7 +23,7 @@ public class PostApiTest {
 	public static Response response;
 	public static JSONObject requestParam;
 	public Logger logger;
-	String emp_firtName="TestData12345";
+	String emp_firstName="TestData12345";
 	String emp_id="";
 	
 	public static HashMap map=new HashMap();
@@ -103,29 +103,11 @@ public class PostApiTest {
 		
 		requestParam.put("tech_stack", list1);
 		requestParam.put("project", list2);
-		
-		/**
-		//httpRequest.header("Content-type", "application/jason");
-		httpRequest.header("Accept-Encoding", "gzip, deflate, br");
-		httpRequest.header("accept", "application/json");
-
-		httpRequest.body(requestParam.toJSONString());
-		//httpRequest.body(emp_firtName, null)
-		//formParams
-		response = httpRequest.request(Method.POST,"/Users");
-		
-		//response = given().contentType(ContentType.APPLICATION_JSON).log().all().body().post();
-		String responseBody=response.getBody().asString();
-		System.out.println(responseBody);
-		//Thread.sleep(5000);
-
-		int statusCode=response.getStatusCode();
-		System.out.println("Status Code : "+statusCode);
-		Assert.assertEquals(statusCode, 201);
-		**/
+	
 		RestAssured.baseURI="https://6143a99bc5b553001717d06a.mockapi.io/testapi/v1/";   
 		RestAssured.basePath="/Users";
-		given()
+		
+		response =given()
 			.header("Accept-Encoding", "gzip, deflate, br")
 			.contentType("application/json")
 			.body(requestParam)
@@ -133,9 +115,12 @@ public class PostApiTest {
 			.post()
 		.then()
 			.statusCode(201)
-			.log().all();
+			.log().all().extract().response();
+		int statuscode = response.getStatusCode();
 		
+		System.out.println("Status Code : "+statuscode);
 		
+		Assert.assertEquals(statuscode, 201);
 		
 	}
 	
@@ -229,9 +214,7 @@ public class PostApiTest {
 			.statusCode(200)
 			.log().all().extract().response();
 		
-		//emp_id=response.jsonPath().getString("id");
-		//System.out.println("Employee ID : "+emp_id);
-		
+
 	}
 	
 	
@@ -282,7 +265,6 @@ public class PostApiTest {
 	@Test 
 	 void checkStatusCode1() {
 		
-		
 		    
 		RestAssured.baseURI="https://6143a99bc5b553001717d06a.mockapi.io/testapi/v1/";   
 		RestAssured.basePath="/Users";
@@ -299,27 +281,45 @@ public class PostApiTest {
 		
 	}
 	@Test
-	 void checkStatusCode3() {
+	 void verifyEmployeeOnleave() {
 
 		RestAssured.baseURI="https://6143a99bc5b553001717d06a.mockapi.io/testapi/v1/";   
-		RestAssured.basePath="/Users/53";
+		RestAssured.basePath="/Users/287";
 		String s =given()
 		.when()
 			.get()
 		.then()
 			.statusCode(200)
 			.extract()
-			.path("employee_firstname");
-			System.out.println(s);
-		
+			.path("employee_onleave");
+		System.out.println("employee_onleave : "+s);
+		Assert.assertEquals(s, "true");
+
 		
 	}
 	
 	@Test
-	 void checkStatusCode4() {
+	 void verifyEmployeeGender() {
 
 		RestAssured.baseURI="https://6143a99bc5b553001717d06a.mockapi.io/testapi/v1/";   
-		RestAssured.basePath="/Users/281";
+		RestAssured.basePath="/Users/287";
+		String s =given()
+		.when()
+			.get()
+		.then()
+			.statusCode(200)
+			.extract()
+			.path("employee_gender");
+		System.out.println("employee_gender : "+s);
+		Assert.assertEquals(s, "employee_gender 1");
+		
+	}
+	
+	@Test
+	 void verifyEmployeefirstName() {
+
+		RestAssured.baseURI="https://6143a99bc5b553001717d06a.mockapi.io/testapi/v1/";   
+		RestAssured.basePath="/Users/287";
 		String s =given()
 					.when()
 						.get()
@@ -327,7 +327,9 @@ public class PostApiTest {
 						.statusCode(200)
 					.extract()
 						.jsonPath().getString("employee_firstname");
-			System.out.println(s);
+			System.out.println("Employee first Name : " +s);
+			Assert.assertEquals(s, "TestData12345");
+			
 	}
 	
 	
